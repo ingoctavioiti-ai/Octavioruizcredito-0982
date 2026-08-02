@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coppel 0982 - Octavio 444</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f2f2f2;padding-bottom:20px}
+.banner-top{background:#0029A3;color:#FFD400;padding:14px 10px;text-align:center;border:4px solid #FFD400;margin:10px;border-radius:18px}
+.banner-top h1{font-size:14px;font-weight:900;text-transform:uppercase;line-height:1.2}
+.banner-top p{font-size:11px;color:#FFE600;margin-top:8px;font-weight:800}
+.card{background:white;margin:12px;border-radius:22px;padding:20px;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,.12)}
+.input{width:100%;padding:14px;border-radius:12px;border:2px solid #0029A3;margin:8px 0;font-size:16px}
+.btn-yellow{background:#FFD400;color:#0029A3;display:block;padding:18px;border-radius:16px;font-weight:900;text-decoration:none;margin:14px 0;text-align:center}
+.btn-green{background:#0A8A3C;color:white;display:block;padding:18px;border-radius:16px;font-weight:900;border:none;width:100%;font-size:17px;cursor:pointer}
+.qr-box{background:white;margin:12px;border-radius:18px;padding:16px;text-align:center;border:3px solid #FFD400}
+.btn-ws{background:#25D366;color:white;display:block;padding:18px;border-radius:14px;font-weight:900;text-decoration:none;margin-top:12px;text-align:center;font-size:16px}
+.btn-print{background:#FFD400;color:#0029A3;display:block;padding:18px;border-radius:14px;font-weight:900;border:2px solid #0029A3;cursor:pointer;width:100%;margin-top:10px;text-align:center}
+.ticket-bonito{border:6px dashed #0A4ABF;background:white;border-radius:12px;overflow:hidden}
+.banner-tarjeta-css{background:#0A4ABF;padding:18px;text-align:center;color:white}
+.banner-tarjeta-css h2{font-size:28px;line-height:1.1}
+.banner-tarjeta-css h2 span{color:#FFD400}
+.tarjeta-amarilla{background:#FFD400;color:#0A4ABF;border-radius:12px;padding:14px;margin:14px auto;max-width:280px;text-align:left;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.cont-ticket{padding:18px}
+.felicidades{color:#0A4ABF;font-size:38px;font-weight:900;text-align:center;margin:12px 0}
+.campo{font-size:20px;font-weight:900;margin:16px 0;display:flex;gap:8px}
+.campo span{font-weight:700;font-size:16px;border-bottom:2px solid #000;flex:1;padding-bottom:2px}
+.mensaje-gracias{text-align:center;font-size:15px;line-height:1.4;margin:12px 0;font-weight:600}
+.footer-ticket{border-top:2px dashed #0A4ABF;margin-top:18px;padding-top:12px;text-align:center;color:#0A4ABF;font-size:11px;font-weight:700}
+.banner-qr-llegada{background:#0A8A3C;color:white;padding:14px;border-radius:12px;margin-bottom:12px;animation:parpadea 1s infinite}
+@keyframes parpadea{0%,100%{opacity:1}50%{opacity:.8}}
+@media print{.banner-top,.card,.qr-box,.no-print{display:none!important}#comprobante{display:block!important;margin:0!important}}
+</style>
+</head>
+<body>
+<div class="banner-top">
+<h1>ESTIMADO CLIENTE DESPUES DE FINALIZAR SU SOLICITUD DE SU APROBACION DE SU CREDITO NO LE DE CONTINUAR</h1>
+<p>REGRESE NUEVAMENTE AQUI Y IMPRIMA SU COMPROBANTE</p>
+</div>
+
+<div id="avisoQR" style="display:none" class="card">
+<div class="banner-qr-llegada">
+<h2 style="font-size:20px">✅ ¡YA ESTÁS EN TRÁMITE!</h2>
+<p style="font-size:13px;margin-top:6px">Se abrió la solicitud de Coppel en otra pestaña.<br>Cuando te aprueben, REGRESA A ESTA PESTAÑA y genera tu comprobante aquí abajo.</p>
+</div>
+<a id="btnAbrirSolicitud" href="https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda&num_tienda=0982&utm_source=444" target="_blank" style="background:#0029A3;color:white;display:block;padding:18px;border-radius:16px;font-weight:900;text-decoration:none;margin:12px 0;text-align:center">👉 SI NO SE ABRIÓ, TOCA AQUÍ PARA SOLICITAR</a>
+<p style="font-size:12px;color:#0A4ABF;font-weight:800">👇 CUANDO TE APRUEBEN, LLENA ABAJO Y GENERA TU COMPROBANTE 👇</p>
+</div>
+
+<div class="card" id="principal">
+<div style="font-size:42px;font-weight:900;color:#0029A3">●● Coppel</div>
+<div style="color:#0029A3;font-weight:800;font-size:11px">COPPEL VILLA FLORES CENTRO - TIENDA 0982 - COLAB 444</div>
+<hr style="border:1px dashed #0029A3;margin:10px 0">
+<div style="color:#0029A3;font-size:24px;font-weight:900">COPPEL VILLA FLORES CENTRO</div>
+<div style="background:#EAF0FF;border-radius:12px;padding:10px;font-size:12px;color:#0029A3;margin:12px 0;font-weight:700">Gerente: Nestor Frisly<br>Atención: OCTAVIO MUEBLES 0982 - 9651251710</div>
+<a class="btn-yellow" href="https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda&num_tienda=0982&utm_source=444" target="_blank">1.- SOLICITA TU CRÉDITO COPPEL →</a>
+<input id="nombre" class="input" placeholder="Tu nombre completo">
+<input id="tel" class="input" type="tel" placeholder="Tu WhatsApp 10 dígitos" maxlength="10">
+<button class="btn-green" onclick="generar()">✅ YA FUI APROBADO, GENERAR COMPROBANTE</button>
+</div>
+
+<div class="qr-box">
+<p style="font-weight:900;color:#0029A3;margin-bottom:10px">ESCANEA PARA SOLICITAR TU CRÉDITO - COLAB 444</p>
+<div style="position:relative;width:280px;height:280px;margin:0 auto;background:white;padding:10px;border-radius:14px;border:2px solid #0029A3">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=https://creditocoppel0982muebles.tiiny.site?qr=1&ecc=H&qzone=4&format=png" style="width:100%;height:100%;display:block;border-radius:6px">
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:5px;border-radius:8px;border:2px solid #FFD400;box-shadow:0 1px 6px rgba(0,0,0,.2)">
+<div style="width:36px;height:22px;background:#FFD400;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:3px">
+<div style="width:7px;height:7px;background:#0A4ABF;border-radius:50%"></div>
+<div style="width:5px;height:5px;background:#0A4ABF;border-radius:50%"></div>
+<div style="width:3px;height:3px;background:#0A4ABF;border-radius:50%"></div>
+</div>
+</div>
+</div>
+<p style="font-size:10px;color:#0A4ABF;margin-top:8px;font-weight:800">QR Inteligente - Te regresa a imprimir - Colab 444</p>
+</div>
+
+<div id="comprobante" style="display:none;margin:12px">
+<div class="ticket-bonito">
+<div class="banner-tarjeta-css">
+<h2>Alistando <span>tu tarjeta física</span> para las ofertas</h2>
+<div class="tarjeta-amarilla"><div style="display:flex;gap:6px;align-items:center"><div style="width:28px;height:28px;background:#0A4ABF;border-radius:50%"></div><div style="width:20px;height:20px;background:#0A4ABF;border-radius:50%"></div><div style="width:14px;height:14px;background:#0A4ABF;border-radius:50%"></div><b style="margin-left:10px;font-size:22px">Coppel</b></div><div style="margin-top:18px;font-size:14px;font-weight:900">CLIENTE<br>DISTINGUIDO</div><div style="text-align:right;margin-top:10px">● 0982</div></div>
+</div>
+<div class="cont-ticket">
+<div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;background:#FFC700;border-radius:50%"></div><div style="width:22px;height:22px;background:#FFC700;border-radius:50%"></div><div style="width:14px;height:14px;background:#FFC700;border-radius:50%"></div><div style="font-size:36px;font-weight:900;color:#0A4ABF">Coppel</div></div>
+<div style="color:#0A4ABF;font-weight:900;font-size:12px;margin-top:4px">COPPEL VILLAFLORES CENTRO - TIENDA 0982 - COLAB 444</div>
+<hr style="border:1px dashed #0A4ABF;margin:10px 0">
+<div class="felicidades">¡Felicidades!</div>
+<div class="campo">Nombre: <span id="c-nombre"></span></div>
+<div class="mensaje-gracias">Gracias por completar tu solicitud con nosotros!<br>Tu solicitud fue registrada correctamente en nuestra tienda 0982.</div>
+<div class="campo">Folio: <span id="c-folio"></span></div>
+<div class="campo">Tel: <span id="c-tel"></span></div>
+<div class="campo">Fecha: <span id="c-fecha"></span></div>
+<hr style="border:1px dashed #0A4ABF;margin:16px 0">
+<div class="footer-ticket">Octavio Muebles - 9651251710 - Tienda 0982 - Villaflores Centro<br>Vo.Bo. Gerente de Tienda - Nestor Frisly<br><span style="font-size:9px;color:#666">Comprobante - Colaborador 444</span></div>
+</div>
+</div>
+<a id="btnTienda" class="btn-ws no-print" href="https://chat.whatsapp.com/CvX5GGc5RCJI50XwmbZOEh" target="_blank">📲 1.- ENVIAR A COPPEL CENTRO</a>
+<button class="btn-print no-print" onclick="window.print()">🖨️ 2.- IMPRIMIR COMPROBANTE</button>
+<a href="#" onclick="location.reload();return false" style="display:block;text-align:center;margin-top:12px;color:#0029A3" class="no-print">← Regresar</a>
+</div>
+
+<script>
+const URL_SHEETS="https://script.google.com/macros/s/AKfycbwFX1vM_k6fzHDzoUX-qoYDnVbIxQbHthULJnAcsCsJ_q8NUgf1c4lukfeMLndBMkRyGQ/exec";
+const LINK_COPPEL_REAL="https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda&num_tienda=0982&utm_source=444";
+
+function generar(){
+let n=document.getElementById('nombre').value.trim();
+let t=document.getElementById('tel').value.trim();
+if(n.length<5){alert("Escribe tu nombre completo");return;}
+if(t.length<10){alert("Escribe tu número 10 dígitos");return;}
+let f="0982-444-"+Math.floor(100000+Math.random()*900000);
+let fe=new Date().toLocaleString('es-MX');
+document.getElementById('c-nombre').innerText=n.toUpperCase();
+document.getElementById('c-tel').innerText=t;
+document.getElementById('c-folio').innerText=f;
+document.getElementById('c-fecha').innerText=fe;
+document.getElementById('principal').style.display='none';
+document.getElementById('comprobante').style.display='block';
+document.getElementById('avisoQR').style.display='none';
+window.scrollTo(0,0);
+fetch(URL_SHEETS,{method:'POST',mode:'no-cors',body:JSON.stringify({nombre:n,folio:f,telefono:t,tienda:"0982",gestor:"OCTAVIO-444",colaborador:"444",fecha:fe})});
+let textoCopia=`CREDITO COPPEL 0982 COLAB 444 - Cliente: ${n} - Tel: ${t} - Folio: ${f} - Fecha: ${fe}`;
+document.getElementById('btnTienda').addEventListener('click', function(){navigator.clipboard.writeText(textoCopia);});
+}
+
+// FUNCION NUEVA - SI VIENE DEL QR
+(function(){
+const urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('qr')){
+document.getElementById('avisoQR').style.display='block';
+document.getElementById('principal').scrollIntoView({behavior:'smooth'});
+// Abre la solicitud real en otra pestaña automaticamente
+setTimeout(()=>{ window.open(LINK_COPPEL_REAL, '_blank'); }, 800);
+}
+})();
+</script>
+</body>
+</html>
