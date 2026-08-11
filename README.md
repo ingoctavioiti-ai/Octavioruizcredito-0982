@@ -1,2 +1,2 @@
-# Octavioruizcredito-0982
+# Octaviocreditodepartamental-0982
 Solicita crédito departamental 
