@@ -1,2 +1,1 @@
-# Octaviocreditodepartamental-0982
-Solicita crédito departamental 
+# Octaviocreditodepartamental-0982 
