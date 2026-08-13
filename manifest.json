@@ -1,0 +1,21 @@
+{
+  "name": "Crédito Coppel",
+  "short_name": "Crédito Coppel",
+  "start_url": "/Octavioruizcredito-0982/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0057b8",
+  "description": "Solicitud de crédito Coppel",
+  "icons": [
+    {
+      "src": "/Octavioruizcredito-0982/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Octavioruizcredito-0982/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
