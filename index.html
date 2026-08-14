@@ -1601,6 +1601,12 @@ behavior:"smooth"
 }
 
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/Octavioruizcredito-0982/sw.js");
+  });
+}
+</script>
 </body>
 </html>
