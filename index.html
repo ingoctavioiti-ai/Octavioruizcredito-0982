@@ -813,10 +813,10 @@ onclick="window.print()">
 
 </button><a
 href="#"
-onclick="location.reload();return false"
+onclick="nuevaSolicitud();return false"
 class="btn-nuevo no-print">
 
-← Generar otro comprobante
+← Nueva solicitud
 
 </a></div><div class="pie no-print">Página de apoyo para facilitar el seguimiento
 de tu solicitud.
@@ -857,6 +857,55 @@ VARIABLES
 
 let solicitudIniciada = false;
 let salioACoppel = false;
+
+
+/* ==================================================
+NUEVA SOLICITUD
+================================================== */
+
+function nuevaSolicitud(){
+
+/*
+  Limpiamos únicamente el estado de la solicitud actual.
+  No se modifica ninguna configuración externa.
+*/
+
+localStorage.removeItem(CLAVE_INICIO);
+localStorage.removeItem(CLAVE_SALIO);
+localStorage.removeItem(CLAVE_DESBLOQUEADO);
+localStorage.removeItem(CLAVE_PASO2);
+
+solicitudIniciada = false;
+salioACoppel = false;
+
+/* Limpiar los datos del comprobante anterior */
+document.getElementById("c-nombre").innerText = "";
+document.getElementById("c-tel").innerText = "";
+document.getElementById("c-folio").innerText = "";
+document.getElementById("c-fecha").innerText = "";
+
+/* Limpiar el formulario */
+document.getElementById("nombre").value = "";
+document.getElementById("tel").value = "";
+
+/* Volver al estado inicial */
+mostrarPaso1Normal();
+
+paso2Bloqueado.style.display = "block";
+paso2Activo.style.display = "none";
+paso2Finalizado.style.display = "none";
+btnRegreso.style.display = "none";
+
+document.getElementById("comprobante").style.display = "none";
+document.getElementById("principal").style.display = "block";
+
+/* Llevar al usuario al inicio de la nueva solicitud */
+window.scrollTo({
+  top: 0,
+  behavior: "smooth"
+});
+
+}
 
 
 /* ==================================================
