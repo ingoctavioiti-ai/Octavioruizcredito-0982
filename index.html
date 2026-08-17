@@ -1,1660 +1,227 @@
-<!DOCTYPE html><html lang="es">
-<head><meta charset="UTF-8">
-<link rel="manifest" href="/Octavioruizcredito-0982/manifest.json">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Coppel 0982 - Octavio 444</title><style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f2f2f2;
-padding-bottom:30px;
-color:#222;
-}
-
-.banner-top{
-background:#0029A3;
-color:#FFD400;
-padding:16px 12px;
-text-align:center;
-border:4px solid #FFD400;
-margin:10px;
-border-radius:20px;
-box-shadow:0 5px 12px rgba(0,0,0,.18);
-}
-
-.banner-top h1{
-font-size:15px;
-font-weight:900;
-text-transform:uppercase;
-line-height:1.3;
-}
-
-.banner-top p{
-font-size:11px;
-color:white;
-margin-top:8px;
-font-weight:700;
-line-height:1.4;
-}
-
-.card{
-background:white;
-margin:12px;
-border-radius:22px;
-padding:20px;
-text-align:center;
-box-shadow:0 6px 15px rgba(0,0,0,.12);
-}
-
-.paso{
-background:#0029A3;
-color:white;
-padding:9px 15px;
-border-radius:30px;
-display:inline-block;
-font-size:13px;
-font-weight:900;
-margin-bottom:10px;
-}
-
-.titulo-paso{
-color:#0029A3;
-font-size:23px;
-font-weight:900;
-margin-bottom:7px;
-}
-
-.descripcion{
-font-size:14px;
-line-height:1.45;
-margin-bottom:12px;
-}
-
-.btn-yellow{
-position:relative;
-background:#FFD400;
-color:#0029A3;
-display:block;
-padding:18px 10px;
-border-radius:16px;
-font-weight:900;
-text-decoration:none;
-margin:18px 0 12px;
-text-align:center;
-border:3px solid #0029A3;
-box-shadow:0 5px 10px rgba(0,0,0,.18);
-font-size:16px;
-}
-
-.btn-yellow:active{
-transform:scale(.98);
-}
-
-.manita{
-position:absolute;
-right:7px;
-top:-48px;
-font-size:38px;
-z-index:5;
-animation:señalar 1.2s infinite;
-filter:drop-shadow(1px 3px 2px rgba(0,0,0,.3));
-pointer-events:none;
-}
-
-@keyframes señalar{
-
-0%,100%{
-transform:translateY(0) rotate(-8deg);
-}
-
-50%{
-transform:translateY(8px) rotate(-8deg);
-}
-
-}
-
-.mensaje-manita{
-background:#FFF7C2;
-border:2px solid #FFD400;
-color:#0029A3;
-border-radius:12px;
-padding:9px;
-font-size:12px;
-font-weight:800;
-margin-top:5px;
-}
-
-.aviso-aprobacion{
-background:#E9F8EF;
-border:2px solid #0A8A3C;
-border-radius:14px;
-padding:13px;
-margin:15px 0;
-text-align:left;
-font-size:13px;
-line-height:1.45;
-}
-
-.aviso-aprobacion strong{
-color:#087631;
-}
-
-.paso1-completado,
-.paso2-finalizado{
-background:#E9F8EF;
-border:2px solid #0A8A3C;
-border-radius:16px;
-padding:16px 12px;
-margin-top:18px;
-}
-
-.paso1-completado .estado,
-.paso2-finalizado .estado{
-background:#0A8A3C;
-color:white;
-display:inline-block;
-padding:7px 12px;
-border-radius:20px;
-font-size:11px;
-font-weight:900;
-margin-bottom:10px;
-}
-
-.paso1-completado h3,
-.paso2-finalizado h3{
-color:#087631;
-font-size:20px;
-margin-bottom:7px;
-}
-
-.paso1-completado p,
-.paso2-finalizado p{
-font-size:12px;
-line-height:1.45;
-}
-
-.btn-regreso{
-background:#0029A3;
-color:white;
-display:block;
-padding:16px 10px;
-border-radius:15px;
-font-weight:900;
-border:3px solid #FFD400;
-width:100%;
-font-size:15px;
-cursor:pointer;
-margin-top:14px;
-box-shadow:0 4px 10px rgba(0,0,0,.18);
-}
-
-.btn-regreso:active{
-transform:scale(.98);
-}
-
-.paso2-bloqueado{
-background:#f1f1f1;
-border:2px dashed #999;
-border-radius:16px;
-padding:18px 12px;
-margin-top:20px;
-}
-
-.paso2-bloqueado .candado{
-font-size:38px;
-margin-bottom:6px;
-}
-
-.paso2-bloqueado h3{
-color:#555;
-font-size:19px;
-margin-bottom:7px;
-}
-
-.paso2-bloqueado p{
-color:#666;
-font-size:12px;
-line-height:1.45;
-}
-
-.paso2-activo{
-background:#F0FFF5;
-border:2px solid #0A8A3C;
-border-radius:16px;
-padding:18px 12px;
-margin-top:20px;
-}
-
-.paso2-activo .estado{
-background:#0A8A3C;
-color:white;
-display:inline-block;
-padding:7px 12px;
-border-radius:20px;
-font-size:11px;
-font-weight:900;
-margin-bottom:10px;
-}
-
-.paso2-activo h3{
-color:#0029A3;
-font-size:22px;
-margin-bottom:6px;
-}
-
-.input{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:2px solid #0029A3;
-margin:8px 0;
-font-size:16px;
-outline:none;
-}
-
-.input:focus{
-border-color:#0A8A3C;
-box-shadow:0 0 0 3px rgba(10,138,60,.12);
-}
-
-.btn-green{
-background:#0A8A3C;
-color:white;
-display:block;
-padding:18px 12px;
-border-radius:16px;
-font-weight:900;
-border:none;
-width:100%;
-font-size:16px;
-cursor:pointer;
-box-shadow:0 5px 10px rgba(0,0,0,.15);
-}
-
-.btn-green:active{
-transform:scale(.98);
-}
-
-.info-tienda{
-background:#EAF0FF;
-border-radius:12px;
-padding:11px;
-font-size:12px;
-color:#0029A3;
-margin:14px 0;
-font-weight:700;
-line-height:1.5;
-}
-
-.qr-box{
-background:white;
-margin:12px;
-border-radius:18px;
-padding:16px;
-text-align:center;
-border:3px solid #FFD400;
-box-shadow:0 5px 12px rgba(0,0,0,.08);
-}
-
-.qr-titulo{
-font-weight:900;
-color:#0029A3;
-margin-bottom:10px;
-font-size:14px;
-}
-
-.qr-contenedor{
-position:relative;
-width:270px;
-height:270px;
-max-width:100%;
-margin:0 auto;
-background:white;
-padding:8px;
-border-radius:14px;
-border:2px solid #0029A3;
-}
-
-.qr-contenedor img{
-width:100%;
-height:100%;
-display:block;
-border-radius:8px;
-}
-
-.logo-qr{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:7px 12px;
-border-radius:10px;
-border:2.5px solid #FFD400;
-box-shadow:0 2px 8px rgba(0,0,0,.25);
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.logo-qr .circulo1{
-width:18px;
-height:18px;
-background:#FFD400;
-border-radius:50%;
-}
-
-.logo-qr .circulo2{
-width:12px;
-height:12px;
-background:#FFD400;
-border-radius:50%;
-}
-
-.logo-qr b{
-font-size:18px;
-color:#0A4ABF;
-}
-
-.qr-ayuda{
-font-size:10px;
-color:#0A4ABF;
-margin-top:8px;
-font-weight:800;
-}
-
-#comprobante{
-display:none;
-margin:12px;
-}
-
-.ticket-bonito{
-border:5px dashed #0A4ABF;
-background:white;
-border-radius:14px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-.banner-tarjeta-css{
-background:#0A4ABF;
-padding:18px;
-text-align:center;
-color:white;
-}
-
-.banner-tarjeta-css h2{
-font-size:25px;
-line-height:1.15;
-}
-
-.banner-tarjeta-css h2 span{
-color:#FFD400;
-}
-
-.tarjeta-amarilla{
-background:#FFD400;
-color:#0A4ABF;
-border-radius:12px;
-padding:14px;
-margin:14px auto;
-max-width:280px;
-text-align:left;
-box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-
-.cont-ticket{
-padding:18px;
-}
-
-.felicidades{
-color:#0A4ABF;
-font-size:32px;
-font-weight:900;
-text-align:center;
-margin:12px 0 4px;
-}
-
-.subtitulo-comprobante{
-text-align:center;
-color:#0A8A3C;
-font-size:18px;
-font-weight:900;
-margin-bottom:15px;
-}
-
-.campo{
-font-size:18px;
-font-weight:900;
-margin:15px 0;
-display:flex;
-gap:8px;
-align-items:flex-end;
-}
-
-.campo span{
-font-weight:700;
-font-size:15px;
-border-bottom:2px solid #000;
-flex:1;
-padding-bottom:2px;
-word-break:break-word;
-}
-
-.mensaje-gracias{
-text-align:center;
-font-size:14px;
-line-height:1.5;
-margin:14px 0;
-font-weight:600;
-}
-
-.aviso-legal{
-background:#FFF7C2;
-border:1px solid #FFD400;
-border-radius:10px;
-padding:10px;
-font-size:11px;
-line-height:1.4;
-text-align:center;
-margin-top:15px;
-color:#444;
-}
-
-.footer-ticket{
-border-top:2px dashed #0A4ABF;
-margin-top:18px;
-padding-top:12px;
-text-align:center;
-color:#0A4ABF;
-font-size:11px;
-font-weight:700;
-line-height:1.5;
-}
-
-.btn-ws{
-background:#25D366;
-color:white;
-display:block;
-padding:17px;
-border-radius:14px;
-font-weight:900;
-text-decoration:none;
-margin-top:12px;
-text-align:center;
-font-size:15px;
-box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
-.btn-print{
-background:#FFD400;
-color:#0029A3;
-display:block;
-padding:17px;
-border-radius:14px;
-font-weight:900;
-border:2px solid #0029A3;
-cursor:pointer;
-width:100%;
-margin-top:10px;
-text-align:center;
-font-size:15px;
-}
-
-.btn-nuevo{
-display:block;
-text-align:center;
-margin-top:15px;
-color:#0029A3;
-font-weight:800;
-text-decoration:none;
-}
-
-.pie{
-text-align:center;
-color:#666;
-font-size:10px;
-margin:18px 12px;
-line-height:1.4;
-}
-
-@media(max-width:500px){
-
-.banner-top{
-margin:8px;
-padding:14px 9px;
-}
-
-.banner-top h1{
-font-size:14px;
-}
-
-.card{
-margin:9px;
-padding:16px;
-}
-
-.titulo-paso{
-font-size:21px;
-}
-
-.btn-yellow,
-.btn-green,
-.btn-regreso{
-font-size:15px;
-padding:17px 9px;
-}
-
-.manita{
-right:2px;
-top:-44px;
-font-size:34px;
-}
-
-.qr-box{
-margin:9px;
-}
-
-.campo{
-font-size:16px;
-}
-
-.campo span{
-font-size:14px;
-}
-
-.felicidades{
-font-size:29px;
-}
-
-}
-
-@media print{
-
-@page{
-size:auto;
-margin:8mm;
-}
-
-body{
-background:white;
-padding:0;
-}
-
-.banner-top,
-.card,
-.qr-box,
-.no-print,
-.pie{
-display:none!important;
-}
-
-#comprobante{
-display:block!important;
-margin:0!important;
-}
-
-.ticket-bonito{
-box-shadow:none;
-}
-
-}
-
-</style></head><body><div class="banner-top"><h1>
-¡REALIZA TU SOLICITUD DE CRÉDITO COPPEL!
-</h1><p>
-Inicia tu solicitud directamente con Coppel.
-Si recibes la aprobación, regresa a esta página
-para continuar con el Paso 2.
-</p></div><div class="card" id="principal"><div style="font-size:42px;font-weight:900;color:#0029A3">
-●● Coppel
-</div><div style="color:#0029A3;font-weight:800;font-size:11px">
-COPPEL VILLAFLORES CENTRO -
-TIENDA 0982 - COLAB 444
-</div><hr style="border:1px dashed #0029A3;margin:10px 0"><div id="paso1Normal"><div class="paso">
-PASO 1
-</div><div class="titulo-paso">
-SOLICITA TU CRÉDITO COPPEL
-</div><p class="descripcion">Llena tu solicitud directamente con Coppel
-utilizando el botón de abajo.
-
-</p><div class="aviso-aprobacion">🎉 <strong>¿Tu crédito fue aprobado?</strong>
-
-<br>Regresa nuevamente a esta página para
-continuar con el Paso 2.
-
-<br><br>
-
-📸 Te recomendamos conservar una captura
-de pantalla de tu aprobación.
-
-</div><div style="position:relative"><div class="manita">
-👇
-</div><a
-id="btnSolicitud"
-class="btn-yellow"
-href="https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda&num_tienda=0982&subcanal=15&utm_source=444&utm_medium=co_col&utm_campaign=dud_dcyb_90331037&utm_content=25&utm_term=ad_opm"
-target="_blank">
-
-🔵 SOLICITAR MI CRÉDITO COPPEL →
-
-</a></div><div class="mensaje-manita">👆 Presiona aquí para comenzar tu solicitud.
-
-</div></div><div
-id="paso1Completado"
-class="paso1-completado"
-style="display:none"><div class="estado">
-✅ PASO 1 FINALIZADO
-</div><h3>
-SOLICITUD INICIADA
-</h3><p id="textoPaso1">La solicitud ya fue iniciada en Coppel.
-
-<br><br>
-
-Cuando regreses de la página de Coppel,
-podrás continuar con el Paso 2.
-
-</p><button
-id="btnRegreso"
-class="btn-regreso"
-onclick="confirmarRegreso()"
-style="display:none">
-
-👆 YA REGRESÉ — CONTINUAR AL PASO 2
-
-</button></div><div class="info-tienda"><strong>
-COPPEL VILLAFLORES CENTRO
-</strong><br>Tienda 0982 - Atención en Muebles
-
-<br>Asesor: OCTAVIO - Colaborador 444
-
-<br>📱 965 125 1710
-
-<br>Gerente: Nestor Frisly
-
-</div><div
-id="paso2Bloqueado"
-class="paso2-bloqueado"><div class="candado">
-🔒
-</div><h3>
-PASO 2 BLOQUEADO
-</h3><p>Primero debes iniciar tu solicitud
-de crédito en el Paso 1.
-
-</p><p style="margin-top:8px">Después de regresar a esta página,
-podrás continuar con el comprobante.
-
-</p></div><div
-id="paso2Activo"
-class="paso2-activo"
-style="display:none"><div class="estado">
-🟢 PASO 2 DISPONIBLE
-</div><h3>
-PASO 2 — GENERA TU COMPROBANTE
-</h3><p class="descripcion">Si Coppel te confirmó la aprobación
-de tu crédito, ingresa tus datos.
-
-</p><input
-id="nombre"
-class="input"
-placeholder="Tu nombre completo"
-autocomplete="name">
-
-<input
-id="tel"
-class="input"
-type="tel"
-placeholder="Tu WhatsApp (10 dígitos)"
-maxlength="10"
-inputmode="numeric"
-autocomplete="tel">
-
-<button
-class="btn-green"
-onclick="generar()">
-
-✅ YA FUI APROBADO — GENERAR COMPROBANTE
-
-</button></div><div
-id="paso2Finalizado"
-class="paso2-finalizado"
-style="display:none"><div class="estado">
-✅ PASO 2 FINALIZADO
-</div><h3>
-¡PROCESO COMPLETADO!
-</h3><p>
-Tu comprobante de seguimiento fue generado correctamente.
-</p><p style="margin-top:8px">
-Puedes enviarlo a Coppel o imprimirlo para presentarlo en tienda.
-</p></div></div><div class="qr-box"><div class="qr-titulo">📱 ESCANEA PARA SOLICITAR TU CRÉDITO
-
-</div><div style="font-size:11px;color:#555;margin-bottom:10px">Tienda 0982 · Colaborador 444
-
-</div><div class="qr-contenedor"><img
-src="https://api.qrserver.com/v1/create-qr-code/?size=900x900&data=https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda%26num_tienda=0982%26utm_source=444&qzone=2"
-alt="QR para solicitar crédito Coppel">
-
-<div class="logo-qr"><div class="circulo1"></div><div class="circulo2"></div><b>Coppel</b>
-
-</div></div><div class="qr-ayuda">Apunta la cámara de tu celular al código QR
-para comenzar.
-
-</div></div><div id="comprobante"><div class="ticket-bonito"><div class="banner-tarjeta-css"><h2>
-Alistando <span>tu tarjeta física</span>
-para las ofertas
-</h2><div class="tarjeta-amarilla"><div style="display:flex;gap:6px;align-items:center"><div style="width:28px;height:28px;background:#0A4ABF;border-radius:50%"></div><div style="width:20px;height:20px;background:#0A4ABF;border-radius:50%"></div><div style="width:14px;height:14px;background:#0A4ABF;border-radius:50%"></div><b style="margin-left:10px;font-size:22px">
-Coppel
-</b></div><div style="margin-top:18px;font-size:14px;font-weight:900">
-CLIENTE<br>DISTINGUIDO
-</div><div style="text-align:right;margin-top:10px">
-● 0982
-</div></div></div><div class="cont-ticket"><div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;background:#FFC700;border-radius:50%"></div><div style="width:22px;height:22px;background:#FFC700;border-radius:50%"></div><div style="width:14px;height:14px;background:#FFC700;border-radius:50%"></div><div style="font-size:36px;font-weight:900;color:#0A4ABF">
-Coppel
-</div></div><div style="color:#0A4ABF;font-weight:900;font-size:12px;margin-top:4px">COPPEL VILLAFLORES CENTRO -
-TIENDA 0982 - COLAB 444
-
-</div><hr style="border:1px dashed #0A4ABF;margin:10px 0"><div class="felicidades">
-¡FELICIDADES!
-</div><div class="subtitulo-comprobante">
-COMPROBANTE DE SEGUIMIENTO
-</div><div class="campo">
-Nombre:
-<span id="c-nombre"></span>
-</div><div class="mensaje-gracias">Gracias por completar tu proceso de solicitud.
-
-<br><br>
-
-Este comprobante se genera para facilitar
-tu atención en
-<strong>Coppel Villaflores Centro,
-Tienda 0982.</strong>
-
-</div><div class="campo">
-Folio:
-<span id="c-folio"></span>
-</div><div class="campo">
-WhatsApp:
-<span id="c-tel"></span>
-</div><div class="campo">
-Fecha:
-<span id="c-fecha"></span>
-</div><div class="aviso-legal">⚠️ <strong>IMPORTANTE:</strong>
-
-<br>Este comprobante es únicamente de seguimiento
-y no sustituye la resolución, aprobación ni
-documentación oficial emitida por Coppel.
-
-</div><hr style="border:1px dashed #0A4ABF;margin:16px 0"><div class="footer-ticket">Octavio Muebles · 965 125 1710
-
-<br>Tienda 0982 · Villaflores Centro
-
-<br>Atención: Colaborador 444
-
-<br><span style="font-size:9px;color:#666">
-Comprobante de seguimiento · Generado desde este sitio
-</span></div></div></div><a
-id="btnTienda"
-class="btn-ws no-print"
-href="https://chat.whatsapp.com/CvX5GGc5RCJI50XwmbZOEh"
-target="_blank">
-
-📲 ENVIAR COMPROBANTE A COPPEL CENTRO
-
-</a><button
-class="btn-print no-print"
-onclick="window.print()">
-
-🖨️ IMPRIMIR COMPROBANTE
-
-</button><a
-href="#"
-onclick="nuevaSolicitud();return false"
-class="btn-nuevo no-print">
-
-← Nueva solicitud
-
-</a></div><div class="pie no-print">Página de apoyo para facilitar el seguimiento
-de tu solicitud.
-
-<br>La aprobación del crédito corresponde
-exclusivamente a Coppel.
-
-</div><script>
-
-/* ==================================================
-GOOGLE SHEETS
-================================================== */
-
-const URL_SHEETS =
-"https://script.google.com/macros/s/AKfycbwFX1vM_k6fzHDzoUX-qoYnVbIxQbHthULJnAcsCsJ_q8NUgf1c4lukfeMLndBMkRyGQ/exec";
-
-
-/* ==================================================
-MEMORIA DEL PROCESO
-================================================== */
-
-const CLAVE_INICIO =
-"coppel0982_444_inicio";
-
-const CLAVE_SALIO =
-"coppel0982_444_salio";
-
-const CLAVE_DESBLOQUEADO =
-"coppel0982_444_desbloqueado";
-
-const CLAVE_PASO2 =
-"coppel0982_444_paso2_finalizado";
-
-
-/* ==================================================
-VARIABLES
-================================================== */
-
-let solicitudIniciada = false;
-let salioACoppel = false;
-
-
-/* ==================================================
-NUEVA SOLICITUD
-================================================== */
-
-function nuevaSolicitud(){
-
-/*
-  Limpiamos únicamente el estado de la solicitud actual.
-  No se modifica ninguna configuración externa.
-*/
-
-localStorage.removeItem(CLAVE_INICIO);
-localStorage.removeItem(CLAVE_SALIO);
-localStorage.removeItem(CLAVE_DESBLOQUEADO);
-localStorage.removeItem(CLAVE_PASO2);
-
-solicitudIniciada = false;
-salioACoppel = false;
-
-/* Limpiar los datos del comprobante anterior */
-document.getElementById("c-nombre").innerText = "";
-document.getElementById("c-tel").innerText = "";
-document.getElementById("c-folio").innerText = "";
-document.getElementById("c-fecha").innerText = "";
-
-/* Limpiar el formulario */
-document.getElementById("nombre").value = "";
-document.getElementById("tel").value = "";
-
-/* Volver al estado inicial */
-mostrarPaso1Normal();
-
-paso2Bloqueado.style.display = "block";
-paso2Activo.style.display = "none";
-paso2Finalizado.style.display = "none";
-btnRegreso.style.display = "none";
-
-document.getElementById("comprobante").style.display = "none";
-document.getElementById("principal").style.display = "block";
-
-/* Llevar al usuario al inicio de la nueva solicitud */
-window.scrollTo({
-  top: 0,
-  behavior: "smooth"
-});
-
-}
-
-
-/* ==================================================
-ELEMENTOS
-================================================== */
-
-const btnSolicitud =
-document.getElementById("btnSolicitud");
-
-const btnRegreso =
-document.getElementById("btnRegreso");
-
-const paso1Normal =
-document.getElementById("paso1Normal");
-
-const paso1Completado =
-document.getElementById("paso1Completado");
-
-const paso2Bloqueado =
-document.getElementById("paso2Bloqueado");
-
-const paso2Activo =
-document.getElementById("paso2Activo");
-
-const paso2Finalizado =
-document.getElementById("paso2Finalizado");
-
-const textoPaso1 =
-document.getElementById("textoPaso1");
-
-
-/* ==================================================
-MOSTRAR PASO 1 NORMAL
-================================================== */
-
-function mostrarPaso1Normal(){
-
-paso1Normal.style.display =
-"block";
-
-paso1Completado.style.display =
-"none";
-
-}
-
-
-/* ==================================================
-MOSTRAR PASO 1 COMPLETADO
-================================================== */
-
-function mostrarPaso1Completado(){
-
-paso1Normal.style.display =
-"none";
-
-paso1Completado.style.display =
-"block";
-
-}
-
-
-/* ==================================================
-MOSTRAR PASO 2 FINALIZADO
-================================================== */
-
-function mostrarPaso2Finalizado(){
-
-paso2Bloqueado.style.display =
-"none";
-
-paso2Activo.style.display =
-"none";
-
-paso2Finalizado.style.display =
-"block";
-
-}
-
-
-/* ==================================================
-DESBLOQUEAR PASO 2
-================================================== */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coppel 0982 - Octavio 444</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f2f2f2;padding-bottom:30px;color:#222}
+.banner-top{background:#0029A3;color:#FFD400;padding:16px 12px;text-align:center;border:4px solid #FFD400;margin:10px;border-radius:20px;box-shadow:0 5px 12px rgba(0,0,0,.18)}
+.banner-top h1{font-size:15px;font-weight:900;text-transform:uppercase;line-height:1.3}
+.banner-top p{font-size:11px;color:white;margin-top:8px;font-weight:700;line-height:1.4}
+.card{background:white;margin:12px;border-radius:22px;padding:20px;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,.12)}
+.paso{background:#0029A3;color:white;padding:9px 15px;border-radius:30px;display:inline-block;font-size:13px;font-weight:900;margin-bottom:10px}
+.titulo-paso{color:#0029A3;font-size:23px;font-weight:900;margin-bottom:7px}
+.descripcion{font-size:14px;line-height:1.45;margin-bottom:12px}
+.btn-yellow{position:relative;background:#FFD400;color:#0029A3;display:block;padding:18px 10px;border-radius:16px;font-weight:900;text-decoration:none;margin:18px 0 12px;text-align:center;border:3px solid #0029A3;box-shadow:0 5px 10px rgba(0,0,0,.18);font-size:16px}
+.btn-yellow:active,.btn-green:active,.btn-regreso:active,.btn-nueva-solicitud:active{transform:scale(.98)}
+.manita{position:absolute;right:7px;top:-48px;font-size:38px;z-index:5;animation:señalar 1.2s infinite;filter:drop-shadow(1px 3px 2px rgba(0,0,0,.3));pointer-events:none}
+@keyframes señalar{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(8px) rotate(-8deg)}}
+.mensaje-manita{background:#FFF7C2;border:2px solid #FFD400;color:#0029A3;border-radius:12px;padding:9px;font-size:12px;font-weight:800;margin-top:5px}
+.aviso-aprobacion{background:#E9F8EF;border:2px solid #0A8A3C;border-radius:14px;padding:13px;margin:15px 0;text-align:left;font-size:13px;line-height:1.45}
+.aviso-aprobacion strong{color:#087631}
+.paso1-completado,.paso2-finalizado{background:#E9F8EF;border:2px solid #0A8A3C;border-radius:16px;padding:16px 12px;margin-top:18px}
+.paso1-completado .estado,.paso2-finalizado .estado{background:#0A8A3C;color:white;display:inline-block;padding:7px 12px;border-radius:20px;font-size:11px;font-weight:900;margin-bottom:10px}
+.paso1-completado h3,.paso2-finalizado h3{color:#087631;font-size:20px;margin-bottom:7px}
+.paso1-completado p,.paso2-finalizado p{font-size:12px;line-height:1.45}
+.btn-regreso{background:#0029A3;color:white;display:block;padding:16px 10px;border-radius:15px;font-weight:900;border:3px solid #FFD400;width:100%;font-size:15px;cursor:pointer;margin-top:14px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.paso2-bloqueado{background:#f1f1f1;border:2px dashed #999;border-radius:16px;padding:18px 12px;margin-top:20px}
+.paso2-bloqueado .candado{font-size:38px;margin-bottom:6px}
+.paso2-bloqueado h3{color:#555;font-size:19px;margin-bottom:7px}
+.paso2-bloqueado p{color:#666;font-size:12px;line-height:1.45}
+.paso2-activo{background:#F0FFF5;border:2px solid #0A8A3C;border-radius:16px;padding:18px 12px;margin-top:20px}
+.paso2-activo .estado{background:#0A8A3C;color:white;display:inline-block;padding:7px 12px;border-radius:20px;font-size:11px;font-weight:900;margin-bottom:10px}
+.paso2-activo h3{color:#0029A3;font-size:22px;margin-bottom:6px}
+.input{width:100%;padding:14px;border-radius:12px;border:2px solid #0029A3;margin:8px 0;font-size:16px;outline:none}
+.input:focus{border-color:#0A8A3C;box-shadow:0 0 0 3px rgba(10,138,60,.12)}
+.btn-green{background:#0A8A3C;color:white;display:block;padding:18px 12px;border-radius:16px;font-weight:900;border:none;width:100%;font-size:16px;cursor:pointer;box-shadow:0 5px 10px rgba(0,0,0,.15)}
+.info-tienda{background:#EAF0FF;border-radius:12px;padding:11px;font-size:12px;color:#0029A3;margin:14px 0;font-weight:700;line-height:1.5}
+.btn-nueva-solicitud{background:#0029A3;color:white;display:block;padding:17px 12px;border-radius:16px;font-weight:900;border:3px solid #FFD400;width:100%;font-size:16px;cursor:pointer;margin-top:22px;box-shadow:0 5px 10px rgba(0,0,0,.18)}
+.nueva-ayuda{font-size:11px;color:#666;margin-top:7px;line-height:1.4}
+.qr-box{background:white;margin:12px;border-radius:18px;padding:16px;text-align:center;border:3px solid #FFD400;box-shadow:0 5px 12px rgba(0,0,0,.08)}
+.qr-titulo{font-weight:900;color:#0029A3;margin-bottom:10px;font-size:14px}
+.qr-contenedor{position:relative;width:270px;height:270px;max-width:100%;margin:0 auto;background:white;padding:8px;border-radius:14px;border:2px solid #0029A3}
+.qr-contenedor img{width:100%;height:100%;display:block;border-radius:8px}
+.logo-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:7px 12px;border-radius:10px;border:2.5px solid #FFD400;box-shadow:0 2px 8px rgba(0,0,0,.25);display:flex;align-items:center;gap:6px}
+.logo-qr .circulo1{width:18px;height:18px;background:#FFD400;border-radius:50%}
+.logo-qr .circulo2{width:12px;height:12px;background:#FFD400;border-radius:50%}
+.logo-qr b{font-size:18px;color:#0A4ABF}
+.qr-ayuda{font-size:10px;color:#0A4ABF;margin-top:8px;font-weight:800}
+#comprobante{display:none;margin:12px}
+.ticket-bonito{border:5px dashed #0A4ABF;background:white;border-radius:14px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.15)}
+.banner-tarjeta-css{background:#0A4ABF;padding:18px;text-align:center;color:white}
+.banner-tarjeta-css h2{font-size:25px;line-height:1.15}
+.banner-tarjeta-css h2 span{color:#FFD400}
+.tarjeta-amarilla{background:#FFD400;color:#0A4ABF;border-radius:12px;padding:14px;margin:14px auto;max-width:280px;text-align:left;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.cont-ticket{padding:18px}
+.felicidades{color:#0A4ABF;font-size:32px;font-weight:900;text-align:center;margin:12px 0 4px}
+.subtitulo-comprobante{text-align:center;color:#0A8A3C;font-size:18px;font-weight:900;margin-bottom:15px}
+.campo{font-size:18px;font-weight:900;margin:15px 0;display:flex;gap:8px;align-items:flex-end}
+.campo span{font-weight:700;font-size:15px;border-bottom:2px solid #000;flex:1;padding-bottom:2px;word-break:break-word}
+.mensaje-gracias{text-align:center;font-size:14px;line-height:1.5;margin:14px 0;font-weight:600}
+.aviso-legal{background:#FFF7C2;border:1px solid #FFD400;border-radius:10px;padding:10px;font-size:11px;line-height:1.4;text-align:center;margin-top:15px;color:#444}
+.footer-ticket{border-top:2px dashed #0A4ABF;margin-top:18px;padding-top:12px;text-align:center;color:#0A4ABF;font-size:11px;font-weight:700;line-height:1.5}
+.btn-ws{background:#25D366;color:white;display:block;padding:17px;border-radius:14px;font-weight:900;text-decoration:none;margin-top:12px;text-align:center;font-size:15px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.btn-print{background:#FFD400;color:#0029A3;display:block;padding:17px;border-radius:14px;font-weight:900;border:2px solid #0029A3;cursor:pointer;width:100%;margin-top:10px;text-align:center;font-size:15px}
+.btn-nuevo{display:block;text-align:center;margin-top:15px;color:#0029A3;font-weight:800;text-decoration:none}
+.pie{text-align:center;color:#666;font-size:10px;margin:18px 12px;line-height:1.4}
+@media(max-width:500px){.banner-top{margin:8px;padding:14px 9px}.banner-top h1{font-size:14px}.card{margin:9px;padding:16px}.titulo-paso{font-size:21px}.btn-yellow,.btn-green,.btn-regreso,.btn-nueva-solicitud{font-size:15px;padding:17px 9px}.manita{right:2px;top:-44px;font-size:34px}.qr-box{margin:9px}.campo{font-size:16px}.campo span{font-size:14px}.felicidades{font-size:29px}}
+@media print{@page{size:auto;margin:8mm}body{background:white;padding:0}.banner-top,.card,.qr-box,.no-print,.pie{display:none!important}#comprobante{display:block!important;margin:0!important}.ticket-bonito{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="banner-top"><h1>¡REALIZA TU SOLICITUD DE CRÉDITO COPPEL!</h1><p>Inicia tu solicitud directamente con Coppel. Si recibes la aprobación, regresa a esta página para continuar con el Paso 2.</p></div>
+
+<div class="card" id="principal">
+<div style="font-size:42px;font-weight:900;color:#0029A3">●● Coppel</div>
+<div style="color:#0029A3;font-weight:800;font-size:11px">COPPEL VILLAFLORES CENTRO - TIENDA 0982 - COLAB 444</div>
+<hr style="border:1px dashed #0029A3;margin:10px 0">
+
+<div id="paso1Normal">
+<div class="paso">PASO 1</div><div class="titulo-paso">SOLICITA TU CRÉDITO COPPEL</div>
+<p class="descripcion">Llena tu solicitud directamente con Coppel utilizando el botón de abajo.</p>
+<div class="aviso-aprobacion">🎉 <strong>¿Tu crédito fue aprobado?</strong><br>Regresa nuevamente a esta página para continuar con el Paso 2.<br><br>📸 Te recomendamos conservar una captura de pantalla de tu aprobación.</div>
+<div style="position:relative"><div class="manita">👇</div>
+<a id="btnSolicitud" class="btn-yellow" href="https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda&num_tienda=0982&subcanal=15&utm_source=444&utm_medium=co_col&utm_campaign=dud_dcyb_90331037&utm_content=25&utm_term=ad_opm" target="_blank">🔵 SOLICITAR MI CRÉDITO COPPEL →</a></div>
+<div class="mensaje-manita">👆 Presiona aquí para comenzar tu solicitud.</div>
+</div>
+
+<div id="paso1Completado" class="paso1-completado" style="display:none">
+<div class="estado">✅ PASO 1 FINALIZADO</div><h3>SOLICITUD INICIADA</h3>
+<p id="textoPaso1">La solicitud ya fue iniciada en Coppel.<br><br>Cuando regreses de la página de Coppel, podrás continuar con el Paso 2.</p>
+<button id="btnRegreso" class="btn-regreso" onclick="confirmarRegreso()" style="display:none">👆 YA REGRESÉ — CONTINUAR AL PASO 2</button>
+</div>
+
+<div class="info-tienda"><strong>COPPEL VILLAFLORES CENTRO</strong><br>Tienda 0982 - Atención en Muebles<br>Asesor: OCTAVIO - Colaborador 444<br>📱 965 125 1710<br>Gerente: Nestor Frisly</div>
+
+<div id="paso2Bloqueado" class="paso2-bloqueado"><div class="candado">🔒</div><h3>PASO 2 BLOQUEADO</h3><p>Primero debes iniciar tu solicitud de crédito en el Paso 1.</p><p style="margin-top:8px">Después de regresar a esta página, podrás continuar con el comprobante.</p></div>
+
+<div id="paso2Activo" class="paso2-activo" style="display:none">
+<div class="estado">🟢 PASO 2 DISPONIBLE</div><h3>PASO 2 — GENERA TU COMPROBANTE</h3>
+<p class="descripcion">Si Coppel te confirmó la aprobación de tu crédito, ingresa tus datos.</p>
+<input id="nombre" class="input" placeholder="Tu nombre completo" autocomplete="name">
+<input id="tel" class="input" type="tel" placeholder="Tu WhatsApp (10 dígitos)" maxlength="10" inputmode="numeric" autocomplete="tel">
+<button class="btn-green" onclick="generar()">✅ YA FUI APROBADO — GENERAR COMPROBANTE</button>
+</div>
+
+<div id="paso2Finalizado" class="paso2-finalizado" style="display:none"><div class="estado">✅ PASO 2 FINALIZADO</div><h3>¡PROCESO COMPLETADO!</h3><p>Tu comprobante de seguimiento fue generado correctamente.</p><p style="margin-top:8px">Puedes enviarlo a Coppel o imprimirlo para presentarlo en tienda.</p></div>
+
+<button id="btnNuevaSolicitud" class="btn-nueva-solicitud" onclick="nuevaSolicitud()">🔄 NUEVA SOLICITUD</button>
+<div class="nueva-ayuda">Úsalo para preparar la página para otro cliente.</div>
+</div>
+
+<div class="qr-box"><div class="qr-titulo">📱 ESCANEA PARA SOLICITAR TU CRÉDITO</div><div style="font-size:11px;color:#555;margin-bottom:10px">Tienda 0982 · Colaborador 444</div>
+<div class="qr-contenedor"><img src="https://api.qrserver.com/v1/create-qr-code/?size=900x900&data=https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda%26num_tienda=0982%26utm_source=444&qzone=2" alt="QR para solicitar crédito Coppel"><div class="logo-qr"><div class="circulo1"></div><div class="circulo2"></div><b>Coppel</b></div></div>
+<div class="qr-ayuda">Apunta la cámara de tu celular al código QR para comenzar.</div></div>
+
+<div id="comprobante"><div class="ticket-bonito">
+<div class="banner-tarjeta-css"><h2>Alistando <span>tu tarjeta física</span> para las ofertas</h2><div class="tarjeta-amarilla"><div style="display:flex;gap:6px;align-items:center"><div style="width:28px;height:28px;background:#0A4ABF;border-radius:50%"></div><div style="width:20px;height:20px;background:#0A4ABF;border-radius:50%"></div><div style="width:14px;height:14px;background:#0A4ABF;border-radius:50%"></div><b style="margin-left:10px;font-size:22px">Coppel</b></div><div style="margin-top:18px;font-size:14px;font-weight:900">CLIENTE<br>DISTINGUIDO</div><div style="text-align:right;margin-top:10px">● 0982</div></div></div>
+<div class="cont-ticket"><div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;background:#FFC700;border-radius:50%"></div><div style="width:22px;height:22px;background:#FFC700;border-radius:50%"></div><div style="width:14px;height:14px;background:#FFC700;border-radius:50%"></div><div style="font-size:36px;font-weight:900;color:#0A4ABF">Coppel</div></div>
+<div style="color:#0A4ABF;font-weight:900;font-size:12px;margin-top:4px">COPPEL VILLAFLORES CENTRO - TIENDA 0982 - COLAB 444</div><hr style="border:1px dashed #0A4ABF;margin:10px 0">
+<div class="felicidades">¡FELICIDADES!</div><div class="subtitulo-comprobante">COMPROBANTE DE SEGUIMIENTO</div>
+<div class="campo">Nombre:<span id="c-nombre"></span></div>
+<div class="mensaje-gracias">Gracias por completar tu proceso de solicitud.<br><br>Este comprobante se genera para facilitar tu atención en <strong>Coppel Villaflores Centro, Tienda 0982.</strong></div>
+<div class="campo">Folio:<span id="c-folio"></span></div><div class="campo">WhatsApp:<span id="c-tel"></span></div><div class="campo">Fecha:<span id="c-fecha"></span></div>
+<div class="aviso-legal">⚠️ <strong>IMPORTANTE:</strong><br>Este comprobante es únicamente de seguimiento y no sustituye la resolución, aprobación ni documentación oficial emitida por Coppel.</div>
+<hr style="border:1px dashed #0A4ABF;margin:16px 0"><div class="footer-ticket">Octavio Muebles · 965 125 1710<br>Tienda 0982 · Villaflores Centro<br>Atención: Colaborador 444<br><span style="font-size:9px;color:#666">Comprobante de seguimiento · Generado desde este sitio</span></div></div></div>
+<a id="btnTienda" class="btn-ws no-print" href="https://chat.whatsapp.com/CvX5GGc5RCJI50XwmbZOEh" target="_blank">📲 ENVIAR COMPROBANTE A COPPEL CENTRO</a>
+<button class="btn-print no-print" onclick="window.print()">🖨️ IMPRIMIR COMPROBANTE</button>
+<a href="#" onclick="location.reload();return false" class="btn-nuevo no-print">← Generar otro comprobante</a></div>
+
+<div class="pie no-print">Página de apoyo para facilitar el seguimiento de tu solicitud.<br>La aprobación del crédito corresponde exclusivamente a Coppel.</div>
+
+<script>
+const URL_SHEETS="https://script.google.com/macros/s/AKfycbwFX1vM_k6fzHDzoUX-qoYnVbIxQbHthULJnAcsCsJ_q8NUgf1c4lukfeMLndBMkRyGQ/exec";
+const CLAVE_INICIO="coppel0982_444_inicio";
+const CLAVE_SALIO="coppel0982_444_salio";
+const CLAVE_DESBLOQUEADO="coppel0982_444_desbloqueado";
+const CLAVE_PASO2="coppel0982_444_paso2_finalizado";
+let solicitudIniciada=false,salioACoppel=false;
+
+const btnSolicitud=document.getElementById("btnSolicitud");
+const btnRegreso=document.getElementById("btnRegreso");
+const paso1Normal=document.getElementById("paso1Normal");
+const paso1Completado=document.getElementById("paso1Completado");
+const paso2Bloqueado=document.getElementById("paso2Bloqueado");
+const paso2Activo=document.getElementById("paso2Activo");
+const paso2Finalizado=document.getElementById("paso2Finalizado");
+const textoPaso1=document.getElementById("textoPaso1");
+
+function mostrarPaso1Normal(){paso1Normal.style.display="block";paso1Completado.style.display="none"}
+function mostrarPaso1Completado(){paso1Normal.style.display="none";paso1Completado.style.display="block"}
+function mostrarPaso2Finalizado(){paso2Bloqueado.style.display="none";paso2Activo.style.display="none";paso2Finalizado.style.display="block"}
 
 function desbloquearPaso2(){
-
-if(!solicitudIniciada){
-return;
+if(!solicitudIniciada)return;
+if(localStorage.getItem(CLAVE_PASO2)==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
+localStorage.setItem(CLAVE_DESBLOQUEADO,"SI");localStorage.removeItem(CLAVE_SALIO);
+mostrarPaso1Completado();paso2Bloqueado.style.display="none";paso2Activo.style.display="block";btnRegreso.style.display="none";
+textoPaso1.innerHTML="La solicitud ya fue iniciada en Coppel.<br><br>✅ Has regresado a esta página.<br><br>Ya puedes continuar con el Paso 2.";
+setTimeout(()=>paso2Activo.scrollIntoView({behavior:"smooth",block:"center"}),400);
 }
+function confirmarRegreso(){if(solicitudIniciada)desbloquearPaso2()}
 
-if(
-localStorage.getItem(
-CLAVE_PASO2
-)==="SI"
-){
-
-mostrarPaso1Completado();
-
-mostrarPaso2Finalizado();
-
-return;
-
-}
-
-localStorage.setItem(
-CLAVE_DESBLOQUEADO,
-"SI"
-);
-
-localStorage.removeItem(
-CLAVE_SALIO
-);
-
-mostrarPaso1Completado();
-
-paso2Bloqueado.style.display =
-"none";
-
-paso2Activo.style.display =
-"block";
-
-btnRegreso.style.display =
-"none";
-
-textoPaso1.innerHTML =
-"La solicitud ya fue iniciada en Coppel." +
-"<br><br>" +
-"✅ Has regresado a esta página." +
-"<br><br>" +
-"Ya puedes continuar con el Paso 2.";
-
-setTimeout(function(){
-
-paso2Activo.scrollIntoView({
-
-behavior:"smooth",
-
-block:"center"
-
+btnSolicitud.addEventListener("click",function(){
+solicitudIniciada=true;salioACoppel=true;
+localStorage.setItem(CLAVE_INICIO,"SI");localStorage.setItem(CLAVE_SALIO,"SI");
+localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);
+mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
 });
 
-},400);
-
-}
-
-
-/* ==================================================
-BOTÓN DE RESPALDO
-================================================== */
-
-function confirmarRegreso(){
-
-if(!solicitudIniciada){
-return;
-}
-
-desbloquearPaso2();
-
-}
-
-
-/* ==================================================
-CUANDO PRESIONA SOLICITAR MI CRÉDITO
-================================================== */
-
-btnSolicitud.addEventListener(
-"click",
-function(){
-
+function detectarRegreso(){if(solicitudIniciada&&salioACoppel&&document.visibilityState==="visible"){salioACoppel=false;desbloquearPaso2()}}
+document.addEventListener("visibilitychange",function(){
+if(document.visibilityState==="hidden"){if(solicitudIniciada){salioACoppel=true;localStorage.setItem(CLAVE_SALIO,"SI")}}
+else setTimeout(detectarRegreso,500);
+});
+window.addEventListener("focus",function(){
+if(solicitudIniciada)setTimeout(function(){if(localStorage.getItem(CLAVE_SALIO)==="SI")desbloquearPaso2()},500);
+});
+window.addEventListener("pageshow",function(){
+setTimeout(function(){
+if(localStorage.getItem(CLAVE_INICIO)==="SI"){
 solicitudIniciada=true;
-
-salioACoppel=true;
-
-localStorage.setItem(
-CLAVE_INICIO,
-"SI"
-);
-
-localStorage.setItem(
-CLAVE_SALIO,
-"SI"
-);
-
-localStorage.removeItem(
-CLAVE_DESBLOQUEADO
-);
-
-localStorage.removeItem(
-CLAVE_PASO2
-);
-
-mostrarPaso1Completado();
-
-paso2Bloqueado.style.display =
-"block";
-
-paso2Activo.style.display =
-"none";
-
-paso2Finalizado.style.display =
-"none";
-
-btnRegreso.style.display =
-"block";
-
+if(localStorage.getItem(CLAVE_PASO2)==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
+if(localStorage.getItem(CLAVE_DESBLOQUEADO)==="SI"){desbloquearPaso2();return}
+if(localStorage.getItem(CLAVE_SALIO)==="SI"){desbloquearPaso2();return}
+mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
+}},500);
 });
-
-
-/* ==================================================
-DETECTAR REGRESO AUTOMÁTICO
-================================================== */
-
-function detectarRegreso(){
-
-if(!solicitudIniciada){
-return;
-}
-
-if(
-salioACoppel &&
-document.visibilityState === "visible"
-){
-
-salioACoppel=false;
-
-desbloquearPaso2();
-
-}
-
-}
-
-
-/* ==================================================
-VISIBILITY CHANGE
-================================================== */
-
-document.addEventListener(
-"visibilitychange",
-function(){
-
-if(
-document.visibilityState === "hidden"
-){
-
-if(solicitudIniciada){
-
-salioACoppel=true;
-
-localStorage.setItem(
-CLAVE_SALIO,
-"SI"
-);
-
-}
-
-return;
-
-}
-
-
-if(
-document.visibilityState === "visible"
-){
-
-setTimeout(function(){
-
-detectarRegreso();
-
-},500);
-
-}
-
-});
-
-
-/* ==================================================
-FOCUS
-================================================== */
-
-window.addEventListener(
-"focus",
-function(){
-
-if(!solicitudIniciada){
-return;
-}
-
-setTimeout(function(){
-
-if(
-localStorage.getItem(
-CLAVE_SALIO
-)==="SI"
-){
-
-desbloquearPaso2();
-
-}
-
-},500);
-
-});
-
-
-/* ==================================================
-PAGESHOW
-================================================== */
-
-window.addEventListener(
-"pageshow",
-function(){
-
-setTimeout(function(){
-
-if(
-localStorage.getItem(
-CLAVE_INICIO
-)==="SI"
-){
-
-solicitudIniciada=true;
-
-
-/* PASO 2 YA FINALIZADO */
-
-if(
-localStorage.getItem(
-CLAVE_PASO2
-)==="SI"
-){
-
-mostrarPaso1Completado();
-
-mostrarPaso2Finalizado();
-
-return;
-
-}
-
-
-/* PASO 2 DESBLOQUEADO */
-
-if(
-localStorage.getItem(
-CLAVE_DESBLOQUEADO
-)==="SI"
-){
-
-desbloquearPaso2();
-
-return;
-
-}
-
-
-/* HABÍA SALIDO A COPPEL */
-
-if(
-localStorage.getItem(
-CLAVE_SALIO
-)==="SI"
-){
-
-desbloquearPaso2();
-
-return;
-
-}
-
-
-/* SOLAMENTE INICIÓ */
-
-mostrarPaso1Completado();
-
-paso2Bloqueado.style.display =
-"block";
-
-paso2Activo.style.display =
-"none";
-
-paso2Finalizado.style.display =
-"none";
-
-btnRegreso.style.display =
-"block";
-
-}
-
-},500);
-
-});
-
-
-/* ==================================================
-RECUPERAR ESTADO AL ABRIR
-================================================== */
 
 function recuperarEstado(){
-
-let inicio =
-localStorage.getItem(
-CLAVE_INICIO
-);
-
-let desbloqueado =
-localStorage.getItem(
-CLAVE_DESBLOQUEADO
-);
-
-let salio =
-localStorage.getItem(
-CLAVE_SALIO
-);
-
-let paso2 =
-localStorage.getItem(
-CLAVE_PASO2
-);
-
-
-/* PRIMERA VEZ */
-
-if(inicio!=="SI"){
-
-solicitudIniciada=false;
-
-salioACoppel=false;
-
-mostrarPaso1Normal();
-
-paso2Bloqueado.style.display =
-"block";
-
-paso2Activo.style.display =
-"none";
-
-paso2Finalizado.style.display =
-"none";
-
-btnRegreso.style.display =
-"none";
-
-return;
-
-}
-
-
-/* YA HABÍA INICIADO */
-
+let inicio=localStorage.getItem(CLAVE_INICIO),desbloqueado=localStorage.getItem(CLAVE_DESBLOQUEADO),salio=localStorage.getItem(CLAVE_SALIO),paso2=localStorage.getItem(CLAVE_PASO2);
+if(inicio!=="SI"){solicitudIniciada=false;salioACoppel=false;mostrarPaso1Normal();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";return}
 solicitudIniciada=true;
-
-
-/* PASO 2 YA FINALIZADO */
-
-if(
-paso2==="SI"
-){
-
-mostrarPaso1Completado();
-
-mostrarPaso2Finalizado();
-
-return;
-
+if(paso2==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
+if(desbloqueado==="SI"||salio==="SI"){desbloquearPaso2();return}
+mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
 }
-
-
-/* YA ESTÁ DESBLOQUEADO */
-
-if(
-desbloqueado==="SI"
-){
-
-desbloquearPaso2();
-
-return;
-
-}
-
-
-/* HABÍA SALIDO A COPPEL */
-
-if(
-salio==="SI"
-){
-
-desbloquearPaso2();
-
-return;
-
-}
-
-
-/* SOLAMENTE INICIÓ */
-
-mostrarPaso1Completado();
-
-paso2Bloqueado.style.display =
-"block";
-
-paso2Activo.style.display =
-"none";
-
-paso2Finalizado.style.display =
-"none";
-
-btnRegreso.style.display =
-"block";
-
-}
-
-
-/* ==================================================
-INICIAR ESTADO
-================================================== */
-
 recuperarEstado();
 
-
-/* ==================================================
-GENERAR COMPROBANTE
-================================================== */
+/* NUEVA SOLICITUD: limpia solamente el estado local del cliente anterior */
+function nuevaSolicitud(){
+if(!confirm("¿Iniciar una nueva solicitud?\n\nSe reiniciarán los pasos para el siguiente cliente."))return;
+localStorage.removeItem(CLAVE_INICIO);localStorage.removeItem(CLAVE_SALIO);localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);
+solicitudIniciada=false;salioACoppel=false;
+document.getElementById("nombre").value="";document.getElementById("tel").value="";
+mostrarPaso1Normal();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";
+document.getElementById("principal").style.display="block";document.getElementById("comprobante").style.display="none";
+window.scrollTo({top:0,behavior:"smooth"});
+}
 
 function generar(){
-
-let n =
-document.getElementById(
-"nombre"
-).value.trim();
-
-let t =
-document.getElementById(
-"tel"
-).value.trim();
-
-
-/* NOMBRE */
-
-if(n.length<5){
-
-alert(
-"✏️ Escribe tu nombre completo."
-);
-
-document
-.getElementById("nombre")
-.focus();
-
-return;
-
-}
-
-
-/* TELEFONO */
-
-if(
-!/^[0-9]{10}$/.test(t)
-){
-
-alert(
-"📱 Escribe un número de WhatsApp válido de 10 dígitos."
-);
-
-document
-.getElementById("tel")
-.focus();
-
-return;
-
-}
-
-
-/* FOLIO */
-
-let f =
-"0982-444-" +
-Math.floor(
-100000 +
-Math.random()*900000
-);
-
-
-/* FECHA */
-
-let fe =
-new Date().toLocaleString(
-"es-MX"
-);
-
-
-/* DATOS DEL COMPROBANTE */
-
-document.getElementById(
-"c-nombre"
-).innerText =
-n.toUpperCase();
-
-document.getElementById(
-"c-tel"
-).innerText =
-t;
-
-document.getElementById(
-"c-folio"
-).innerText =
-f;
-
-document.getElementById(
-"c-fecha"
-).innerText =
-fe;
-
-
-/* ==================================================
-MARCAR PASO 2 COMO FINALIZADO
-================================================== */
-
-localStorage.setItem(
-CLAVE_PASO2,
-"SI"
-);
-
-localStorage.setItem(
-CLAVE_DESBLOQUEADO,
-"SI"
-);
-
-
-/* MOSTRAR ESTADO FINALIZADO */
-
-mostrarPaso1Completado();
-
-mostrarPaso2Finalizado();
-
-
-/* OCULTAR PRINCIPAL */
-
-document.getElementById(
-"principal"
-).style.display =
-"none";
-
-
-/* MOSTRAR COMPROBANTE */
-
-document.getElementById(
-"comprobante"
-).style.display =
-"block";
-
-
-/* ==================================================
-GOOGLE SHEETS
-================================================== */
-
-fetch(
-URL_SHEETS,
-{
-method:"POST",
-
-mode:"no-cors",
-
-body:JSON.stringify({
-
-nombre:n,
-
-folio:f,
-
-telefono:t,
-
-tienda:"0982",
-
-gestor:"OCTAVIO-444",
-
-colaborador:"444",
-
-fecha:fe
-
-})
-
-}
-);
-
-
-/* ==================================================
-TEXTO PARA WHATSAPP
-================================================== */
-
-let textoCopia =
-
-"COMPROBANTE DE SEGUIMIENTO - COPPEL 0982\n" +
-
-"Cliente: "+n+"\n" +
-
-"WhatsApp: "+t+"\n" +
-
-"Folio: "+f+"\n" +
-
-"Fecha: "+fe+"\n" +
-
-"Colaborador: 444 - Octavio";
-
-
-/* ==================================================
-BOTON WHATSAPP
-================================================== */
-
-document
-.getElementById(
-"btnTienda"
-)
-.onclick=function(){
-
-if(
-navigator.clipboard
-){
-
-navigator.clipboard
-.writeText(
-textoCopia
-)
-.catch(
-function(){}
-);
-
-}
-
-};
-
-
-/* ==================================================
-VOLVER ARRIBA
-================================================== */
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-}
-
-</script>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("/Octavioruizcredito-0982/sw.js");
-  });
+let n=document.getElementById("nombre").value.trim(),t=document.getElementById("tel").value.trim();
+if(n.length<5){alert("✏️ Escribe tu nombre completo.");document.getElementById("nombre").focus();return}
+if(!/^[0-9]{10}$/.test(t)){alert("📱 Escribe un número de WhatsApp válido de 10 dígitos.");document.getElementById("tel").focus();return}
+let f="0982-444-"+Math.floor(100000+Math.random()*900000),fe=new Date().toLocaleString("es-MX");
+document.getElementById("c-nombre").innerText=n.toUpperCase();document.getElementById("c-tel").innerText=t;document.getElementById("c-folio").innerText=f;document.getElementById("c-fecha").innerText=fe;
+localStorage.setItem(CLAVE_PASO2,"SI");localStorage.setItem(CLAVE_DESBLOQUEADO,"SI");
+mostrarPaso1Completado();mostrarPaso2Finalizado();
+document.getElementById("principal").style.display="none";document.getElementById("comprobante").style.display="block";
+fetch(URL_SHEETS,{method:"POST",mode:"no-cors",body:JSON.stringify({nombre:n,folio:f,telefono:t,tienda:"0982",gestor:"OCTAVIO-444",colaborador:"444",fecha:fe})});
+let textoCopia="COMPROBANTE DE SEGUIMIENTO - COPPEL 0982\nCliente: "+n+"\nWhatsApp: "+t+"\nFolio: "+f+"\nFecha: "+fe+"\nColaborador: 444 - Octavio";
+document.getElementById("btnTienda").onclick=function(){if(navigator.clipboard)navigator.clipboard.writeText(textoCopia).catch(()=>{})};
+window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
 </body>
