@@ -66,6 +66,17 @@ body{background:#f2f2f2;padding-bottom:30px;color:#222}
 .btn-print{background:#FFD400;color:#0029A3;display:block;padding:17px;border-radius:14px;font-weight:900;border:2px solid #0029A3;cursor:pointer;width:100%;margin-top:10px;text-align:center;font-size:15px}
 .btn-nuevo{display:block;text-align:center;margin-top:15px;color:#0029A3;font-weight:800;text-decoration:none}
 .pie{text-align:center;color:#666;font-size:10px;margin:18px 12px;line-height:1.4}
+.aprobacion-modal{position:fixed;inset:0;background:rgba(0,0,0,.62);display:none;align-items:center;justify-content:center;padding:18px;z-index:9999}
+.aprobacion-modal.visible{display:flex}
+.aprobacion-dialog{width:100%;max-width:420px;background:white;border-radius:20px;padding:22px 18px;text-align:center;box-shadow:0 12px 35px rgba(0,0,0,.35);border:3px solid #FFD400}
+.aprobacion-dialog .icono{font-size:46px;margin-bottom:5px}
+.aprobacion-dialog h2{color:#0A8A3C;font-size:23px;margin:5px 0 10px}
+.aprobacion-dialog p{font-size:14px;line-height:1.5;color:#333;margin:8px 0}
+.aprobacion-dialog .nota{background:#FFF7C2;border:1px solid #FFD400;border-radius:10px;padding:10px;font-size:12px;margin:12px 0}
+.btn-confirmar-aprobacion{background:#0A8A3C;color:white;border:0;border-radius:14px;padding:16px 10px;width:100%;font-size:15px;font-weight:900;cursor:pointer;margin-top:8px}
+.btn-captura-lista{background:#0029A3;color:white;border:3px solid #FFD400;border-radius:14px;padding:16px 10px;width:100%;font-size:15px;font-weight:900;cursor:pointer;margin-top:8px}
+.btn-no-aprobado{background:white;color:#0029A3;border:2px solid #0029A3;border-radius:14px;padding:13px 10px;width:100%;font-size:14px;font-weight:800;cursor:pointer;margin-top:8px}
+
 @media(max-width:500px){.banner-top{margin:8px;padding:14px 9px}.banner-top h1{font-size:14px}.card{margin:9px;padding:16px}.titulo-paso{font-size:21px}.btn-yellow,.btn-green,.btn-regreso,.btn-nueva-solicitud{font-size:15px;padding:17px 9px}.manita{right:2px;top:-44px;font-size:34px}.qr-box{margin:9px}.campo{font-size:16px}.campo span{font-size:14px}.felicidades{font-size:29px}}
 @media print{@page{size:auto;margin:8mm}body{background:white;padding:0}.banner-top,.card,.qr-box,.no-print,.pie{display:none!important}#comprobante{display:block!important;margin:0!important}.ticket-bonito{box-shadow:none}}
 </style>
@@ -90,7 +101,7 @@ body{background:#f2f2f2;padding-bottom:30px;color:#222}
 <div id="paso1Completado" class="paso1-completado" style="display:none">
 <div class="estado">✅ PASO 1 FINALIZADO</div><h3>SOLICITUD INICIADA</h3>
 <p id="textoPaso1">La solicitud ya fue iniciada en Coppel.<br><br>Cuando regreses de la página de Coppel, podrás continuar con el Paso 2.</p>
-<button id="btnRegreso" class="btn-regreso" onclick="confirmarRegreso()" style="display:none">👆 YA REGRESÉ — CONTINUAR AL PASO 2</button>
+<button id="btnRegreso" class="btn-regreso" onclick="confirmarRegreso()" style="display:none">👆 YA REGRESÉ — REVISAR RESULTADO</button>
 </div>
 
 <div class="info-tienda"><strong>COPPEL VILLAFLORES CENTRO</strong><br>Tienda 0982 - Atención en Muebles<br>Asesor: OCTAVIO - Colaborador 444<br>📱 965 125 1710<br>Gerente: Nestor Frisly</div>
@@ -115,6 +126,28 @@ body{background:#f2f2f2;padding-bottom:30px;color:#222}
 <div class="qr-contenedor"><img src="https://api.qrserver.com/v1/create-qr-code/?size=900x900&data=https://tucredito.bancoppel.com/solicita-tu-credito?canal=tienda%26num_tienda=0982%26utm_source=444&qzone=2" alt="QR para solicitar crédito Coppel"><div class="logo-qr"><div class="circulo1"></div><div class="circulo2"></div><b>Coppel</b></div></div>
 <div class="qr-ayuda">Apunta la cámara de tu celular al código QR para comenzar.</div></div>
 
+
+<div id="modalAprobacion" class="aprobacion-modal" role="dialog" aria-modal="true" aria-labelledby="tituloAprobacion">
+  <div class="aprobacion-dialog">
+    <div class="icono">🎉</div>
+    <h2 id="tituloAprobacion">¿Coppel te mostró una aprobación?</h2>
+    <p>Esta página no cambia ni genera el resultado de Coppel. Confirma solamente si la página oficial mostró que tu crédito fue aprobado.</p>
+    <div class="nota">📸 Si viste la aprobación, toma una captura de esa pantalla oficial y guárdala en tu teléfono.</div>
+    <button id="btnConfirmarAprobacion" class="btn-confirmar-aprobacion">SÍ, VI QUE FUI APROBADO</button>
+    <button id="btnNoAprobado" class="btn-no-aprobado">NO / NO FUI APROBADO</button>
+  </div>
+</div>
+
+<div id="modalCaptura" class="aprobacion-modal" role="dialog" aria-modal="true" aria-labelledby="tituloCaptura">
+  <div class="aprobacion-dialog">
+    <div class="icono">📸</div>
+    <h2 id="tituloCaptura">Guarda la captura de tu aprobación</h2>
+    <p>Haz la captura de la pantalla oficial donde aparece la aprobación. Android la guardará en tu Galería/Fotos.</p>
+    <div class="nota">Cuando termines, pulsa el botón de abajo para continuar al Paso 2.</div>
+    <button id="btnCapturaLista" class="btn-captura-lista">✅ YA HICE LA CAPTURA — IR AL PASO 2</button>
+  </div>
+</div>
+
 <div id="comprobante"><div class="ticket-bonito">
 <div class="banner-tarjeta-css"><h2>Alistando <span>tu tarjeta física</span> para las ofertas</h2><div class="tarjeta-amarilla"><div style="display:flex;gap:6px;align-items:center"><div style="width:28px;height:28px;background:#0A4ABF;border-radius:50%"></div><div style="width:20px;height:20px;background:#0A4ABF;border-radius:50%"></div><div style="width:14px;height:14px;background:#0A4ABF;border-radius:50%"></div><b style="margin-left:10px;font-size:22px">Coppel</b></div><div style="margin-top:18px;font-size:14px;font-weight:900">CLIENTE<br>DISTINGUIDO</div><div style="text-align:right;margin-top:10px">● 0982</div></div></div>
 <div class="cont-ticket"><div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;background:#FFC700;border-radius:50%"></div><div style="width:22px;height:22px;background:#FFC700;border-radius:50%"></div><div style="width:14px;height:14px;background:#FFC700;border-radius:50%"></div><div style="font-size:36px;font-weight:900;color:#0A4ABF">Coppel</div></div>
@@ -137,6 +170,7 @@ const CLAVE_INICIO="coppel0982_444_inicio";
 const CLAVE_SALIO="coppel0982_444_salio";
 const CLAVE_DESBLOQUEADO="coppel0982_444_desbloqueado";
 const CLAVE_PASO2="coppel0982_444_paso2_finalizado";
+const CLAVE_APROBACION_CONFIRMADA="coppel0982_444_aprobacion_confirmada";
 let solicitudIniciada=false,salioACoppel=false;
 
 const btnSolicitud=document.getElementById("btnSolicitud");
@@ -147,6 +181,27 @@ const paso2Bloqueado=document.getElementById("paso2Bloqueado");
 const paso2Activo=document.getElementById("paso2Activo");
 const paso2Finalizado=document.getElementById("paso2Finalizado");
 const textoPaso1=document.getElementById("textoPaso1");
+const modalAprobacion=document.getElementById("modalAprobacion");
+const modalCaptura=document.getElementById("modalCaptura");
+const btnConfirmarAprobacion=document.getElementById("btnConfirmarAprobacion");
+const btnNoAprobado=document.getElementById("btnNoAprobado");
+const btnCapturaLista=document.getElementById("btnCapturaLista");
+
+function cerrarModalAprobacion(){modalAprobacion.classList.remove("visible")}
+function mostrarModalAprobacion(){modalCaptura.classList.remove("visible");modalAprobacion.classList.add("visible")}
+function mostrarModalCaptura(){modalAprobacion.classList.remove("visible");modalCaptura.classList.add("visible")}
+function finalizarConfirmacionAprobacion(){
+modalCaptura.classList.remove("visible");
+localStorage.setItem(CLAVE_APROBACION_CONFIRMADA,"SI");
+desbloquearPaso2();
+}
+btnConfirmarAprobacion.addEventListener("click",mostrarModalCaptura);
+btnNoAprobado.addEventListener("click",function(){
+localStorage.removeItem(CLAVE_APROBACION_CONFIRMADA);
+cerrarModalAprobacion();
+textoPaso1.innerHTML="La solicitud ya fue iniciada en Coppel.<br><br>El resultado debe respetarse tal como lo muestra la página oficial.";
+});
+btnCapturaLista.addEventListener("click",finalizarConfirmacionAprobacion);
 
 function mostrarPaso1Normal(){paso1Normal.style.display="block";paso1Completado.style.display="none"}
 function mostrarPaso1Completado(){paso1Normal.style.display="none";paso1Completado.style.display="block"}
@@ -155,6 +210,7 @@ function mostrarPaso2Finalizado(){paso2Bloqueado.style.display="none";paso2Activ
 function desbloquearPaso2(){
 if(!solicitudIniciada)return;
 if(localStorage.getItem(CLAVE_PASO2)==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
+if(localStorage.getItem(CLAVE_APROBACION_CONFIRMADA)!=="SI"){mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";btnRegreso.style.display="none";return}
 localStorage.setItem(CLAVE_DESBLOQUEADO,"SI");localStorage.removeItem(CLAVE_SALIO);
 mostrarPaso1Completado();paso2Bloqueado.style.display="none";paso2Activo.style.display="block";btnRegreso.style.display="none";
 textoPaso1.innerHTML="La solicitud ya fue iniciada en Coppel.<br><br>✅ Has regresado a esta página.<br><br>Ya puedes continuar con el Paso 2.";
@@ -165,17 +221,36 @@ function confirmarRegreso(){if(solicitudIniciada)desbloquearPaso2()}
 btnSolicitud.addEventListener("click",function(){
 solicitudIniciada=true;salioACoppel=true;
 localStorage.setItem(CLAVE_INICIO,"SI");localStorage.setItem(CLAVE_SALIO,"SI");
-localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);
+localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);localStorage.removeItem(CLAVE_APROBACION_CONFIRMADA);
 mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
 });
 
-function detectarRegreso(){if(solicitudIniciada&&salioACoppel&&document.visibilityState==="visible"){salioACoppel=false;desbloquearPaso2()}}
+function detectarRegreso(){
+if(solicitudIniciada&&salioACoppel&&document.visibilityState==="visible"){
+salioACoppel=false;
+localStorage.setItem(CLAVE_SALIO,"SI");
+mostrarPaso1Completado();
+paso2Bloqueado.style.display="block";
+paso2Activo.style.display="none";
+btnRegreso.style.display="none";
+mostrarModalAprobacion();
+}
+}
 document.addEventListener("visibilitychange",function(){
 if(document.visibilityState==="hidden"){if(solicitudIniciada){salioACoppel=true;localStorage.setItem(CLAVE_SALIO,"SI")}}
 else setTimeout(detectarRegreso,500);
 });
 window.addEventListener("focus",function(){
-if(solicitudIniciada)setTimeout(function(){if(localStorage.getItem(CLAVE_SALIO)==="SI")desbloquearPaso2()},500);
+if(solicitudIniciada)setTimeout(function(){
+if(localStorage.getItem(CLAVE_SALIO)==="SI" && document.visibilityState==="visible"){
+localStorage.removeItem(CLAVE_SALIO);
+mostrarPaso1Completado();
+paso2Bloqueado.style.display="block";
+paso2Activo.style.display="none";
+btnRegreso.style.display="none";
+mostrarModalAprobacion();
+}
+},500);
 });
 window.addEventListener("pageshow",function(){
 setTimeout(function(){
@@ -183,7 +258,11 @@ if(localStorage.getItem(CLAVE_INICIO)==="SI"){
 solicitudIniciada=true;
 if(localStorage.getItem(CLAVE_PASO2)==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
 if(localStorage.getItem(CLAVE_DESBLOQUEADO)==="SI"){desbloquearPaso2();return}
-if(localStorage.getItem(CLAVE_SALIO)==="SI"){desbloquearPaso2();return}
+if(localStorage.getItem(CLAVE_SALIO)==="SI"){
+mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";
+setTimeout(mostrarModalAprobacion,200);
+return
+}
 mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
 }},500);
 });
@@ -193,7 +272,12 @@ let inicio=localStorage.getItem(CLAVE_INICIO),desbloqueado=localStorage.getItem(
 if(inicio!=="SI"){solicitudIniciada=false;salioACoppel=false;mostrarPaso1Normal();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";return}
 solicitudIniciada=true;
 if(paso2==="SI"){mostrarPaso1Completado();mostrarPaso2Finalizado();return}
-if(desbloqueado==="SI"||salio==="SI"){desbloquearPaso2();return}
+if(desbloqueado==="SI" && localStorage.getItem(CLAVE_APROBACION_CONFIRMADA)==="SI"){desbloquearPaso2();return}
+if(salio==="SI"){
+mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";
+setTimeout(mostrarModalAprobacion,200);
+return
+}
 mostrarPaso1Completado();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="block";
 }
 recuperarEstado();
@@ -201,7 +285,7 @@ recuperarEstado();
 /* NUEVA SOLICITUD: limpia solamente el estado local del cliente anterior */
 function nuevaSolicitud(){
 if(!confirm("¿Iniciar una nueva solicitud?\n\nSe reiniciarán los pasos para el siguiente cliente."))return;
-localStorage.removeItem(CLAVE_INICIO);localStorage.removeItem(CLAVE_SALIO);localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);
+localStorage.removeItem(CLAVE_INICIO);localStorage.removeItem(CLAVE_SALIO);localStorage.removeItem(CLAVE_DESBLOQUEADO);localStorage.removeItem(CLAVE_PASO2);localStorage.removeItem(CLAVE_APROBACION_CONFIRMADA);
 solicitudIniciada=false;salioACoppel=false;
 document.getElementById("nombre").value="";document.getElementById("tel").value="";
 mostrarPaso1Normal();paso2Bloqueado.style.display="block";paso2Activo.style.display="none";paso2Finalizado.style.display="none";btnRegreso.style.display="none";
